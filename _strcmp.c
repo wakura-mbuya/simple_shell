@@ -1,5 +1,5 @@
 #include <stdio.h>
-int _strlen(char *str);
+#include "main.h"
 /**
 *_strcmp - function that compares two strings.
 *Description: A function that checks whether two strings are the same.
@@ -9,22 +9,23 @@ int _strlen(char *str);
 */
 int _strcmp(char *s1, char *s2)
 {
-    int i, j, k;
-    i = _strlen(s1);
-    j = _strlen(s2);
-     if (i == j)
-     {
-        for (k = 0; s1[k] != '\0' && s2[k] != '\0'; k++)
-        {
-            if (s1[k] != s2[k])
-            {
-                    return(1);
-            }
-        }
-        return (0);
-     }
-     else 
-     {
-        return (1);
-     }
+	int i, j, k;
+
+	i = _strlen(s1);
+	j = _strlen(s2);
+	if (i == j)
+	{
+		for (k = 0; s1[k] != '\0' && s2[k] != '\0'; k++)
+		{
+			if (s1[k] != s2[k])
+			{
+				return (1);
+			}
+		}
+		return (0);
+	}
+	else
+	{
+		return (1);
+	}
 }
