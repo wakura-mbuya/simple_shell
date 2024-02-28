@@ -15,6 +15,5 @@ int _strlen(char *str)
 	{
 		len = len + 1;
 	}
-	printf("\n");
 	return (len);
 }
