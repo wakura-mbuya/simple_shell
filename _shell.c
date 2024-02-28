@@ -11,11 +11,10 @@ int main(void)
 		line = NULL;
     	len = 0;
 		stream = stdin;
-		r = getline(&line, &len, stream);
+
 		while (1)
 		{
 			printf("$ ");
-			getline(&line, &len, stream);
 			r = getline(&line, &len, stream);
 			if (r == -1)
 			{
