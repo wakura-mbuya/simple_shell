@@ -8,7 +8,7 @@ int main(void)
 	/* Using getline */
 	FILE *stream;
 	char *line;
-    size_t len;
+	size_t len;
 	ssize_t r;
 	/* Using strtok */
 	char *delim;
@@ -18,8 +18,7 @@ int main(void)
 	len = 0;
 	stream = stdin;
 	delim = " ";
-
-		while (1) 
+		while (1)
 		{
 			write(1, "$ ", 2);
 			r = getline(&line, &len, stream);
@@ -28,11 +27,11 @@ int main(void)
 				return (-1);
 			}
 			token = strtok(line, delim);
-
 			while (token != NULL)
 			{
-				printf("%s\n", token);
+				write(STDOUT_FILENO, token, strlen(token));
 				token = strtok(NULL, delim);
 			}
 		}
+	return (0);
 }
