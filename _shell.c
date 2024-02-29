@@ -2,7 +2,11 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/types.h>
-
+/**
+*main - program entry point
+*Description: takes in functions and executes a program
+*Return: 0 on success
+*/
 int main(void)
 {
 	/* Using getline */
