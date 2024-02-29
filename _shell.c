@@ -1,24 +1,38 @@
 #include <stdio.h>
+#include <string.h>
+#include <unistd.h>
 #include <sys/types.h>
 
 int main(void)
 {
+	/* Using getline */
 	FILE *stream;
 	char *line;
     size_t len;
 	ssize_t r;
+	/* Using strtok */
+	char *delim;
+	char *token;
 
-		line = NULL;
-    	len = 0;
-		stream = stdin;
+	line = NULL;
+	len = 0;
+	stream = stdin;
+	delim = " ";
 
-		while (1)
+		while (1) 
 		{
-			printf("$ ");
+			write(1, "$ ", 2);
 			r = getline(&line, &len, stream);
 			if (r == -1)
 			{
 				return (-1);
+			}
+			token = strtok(line, delim);
+
+			while (token != NULL)
+			{
+				printf("%s\n", token);
+				token = strtok(NULL, delim);
 			}
 		}
 }
