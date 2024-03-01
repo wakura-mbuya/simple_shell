@@ -8,13 +8,10 @@
 *Description: takes in functions and executes a program
 *Return: 0 on success
 */
-int main(void)
+int main(__attribute__((unused))int ac, __attribute__((unused))char **av, char **env)
 {
 	char *line; 
-	char *delim;
-	char *token;
-
-	delim = " ";
+	char **array;
 	while (1)
 	{
 		write(1, "$ ", 2);
@@ -23,7 +20,8 @@ int main(void)
 		{
 			break;
 		}
-		get_token();
+		array = get_token(line); 
+		execve(array[0], array, env);
 	}
 	return (0);
 }
